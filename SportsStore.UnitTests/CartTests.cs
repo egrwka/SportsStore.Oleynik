@@ -7,6 +7,7 @@ using SportsStore.Domain.Abstract;
 using SportsStore.WebUI.Controllers;
 using System.Web.Mvc;
 using SportsStore.WebUI.Models;
+
 namespace SportsStore.UnitTests
 {
     [TestClass]
@@ -17,10 +18,10 @@ namespace SportsStore.UnitTests
         public void Can_Add_To_Cart()
         {
         // Arrange - create the mock repository
-            Mock<IProductRepository> mock = new Mock<IProductRepository>();
-            mock.Setup(m => m.Products).Returns(new Product[] {
-            new Product {ProductID = 1, Name = "P1", Category = "Apples"},
-            }.AsQueryable());
+         Mock<IProductRepository> mock = new Mock<IProductRepository>();
+                    mock.Setup(m => m.Products).Returns(new Product[] {
+         new Product {ProductID = 1, Name = "P1", Category = "Apples"},
+         }.AsQueryable());
             // Arrange - create a Cart
             Cart cart = new Cart();
             // Arrange - create the controller
@@ -37,8 +38,8 @@ namespace SportsStore.UnitTests
             // Arrange - create the mock repository
             Mock<IProductRepository> mock = new Mock<IProductRepository>();
             mock.Setup(m => m.Products).Returns(new Product[] {
-            new Product {ProductID = 1, Name = "P1", Category = "Apples"},
-            }.AsQueryable());
+                 new Product {ProductID = 1, Name = "P1", Category = "Apples"},
+                 }.AsQueryable());
             // Arrange - create a Cart
             Cart cart = new Cart();
             // Arrange - create the controller
@@ -57,7 +58,8 @@ namespace SportsStore.UnitTests
             // Arrange - create the controller
             CartController target = new CartController(null);
         // Act - call the Index action method
-        CartIndexViewModel result = (CartIndexViewModel)target.Index(cart, "myUrl").ViewData.Model;
+             CartIndexViewModel result
+             = (CartIndexViewModel)target.Index(cart, "myUrl").ViewData.Model;
             // Assert
             Assert.AreSame(result.Cart, cart);
             Assert.AreEqual(result.ReturnUrl, "myUrl");
