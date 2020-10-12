@@ -26,7 +26,7 @@ namespace SportsStore.Domain.Concrete
             emailSettings = settings;
         }
 
- public void ProcessOrder(Cart cart, ShippingDetails shippingInfo)
+    public void ProcessOrder(Cart cart, ShippingDetails shippingInfo)
         {
             using (var smtpClient = new SmtpClient())
             {
@@ -78,7 +78,7 @@ namespace SportsStore.Domain.Concrete
                 {
                     mailMessage.BodyEncoding = Encoding.ASCII;
                 }
-                smtpClient.Send(mailMessage);
+                // smtpClient.Send(mailMessage);
             }
         }
     }
